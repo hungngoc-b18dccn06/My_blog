@@ -71,6 +71,7 @@ export default {
     },
 
     signOut() {
+      // eslint-disable-next-line no-undef
       firebase.auth().signOut();
       window.location.reload();
     },

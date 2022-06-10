@@ -8,6 +8,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "common-js": "^0.3.8",
     "firebase": "^9.8.2",
     "quill": "^1.3.7",
     "quill-image-resize-module": "^3.0.0",
