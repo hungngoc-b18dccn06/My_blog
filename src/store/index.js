@@ -24,9 +24,13 @@ export default createStore({
         blogDate: "May 13, 2022",
       },
     ],
+    editPost: null,
+    blogTitle: '',
   },
   mutations: {
-
+    toggleEditPost(state,payload){
+        state.editPost = payload;
+    },
   },
   actions: {
 

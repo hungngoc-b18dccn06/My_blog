@@ -7,14 +7,26 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
+      meta:{
+        title: 'Home'
+      }
     },
     {
       path: '/blogs',
       name: 'blogs',
-      component: Blogs
+      component: Blogs,
+      meta:{
+        title: 'Blogs'
+      }
     },
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  document.title = `${to.meta.title} | FireBlog`;
+  next();
+});
+
 
 export default router

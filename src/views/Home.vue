@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <BlogPost :post="welcomeScreen" />
-    <BlogPost :post="post" v-for="(post, index) in sampleBlog" :key="index"/>
+    <BlogPost :post="post" v-for="(post, index) in sampleBlog" :key="index" />
     <div class="blog-card-wrap">
       <div class="container">
         <h3>View More Recent Blogs</h3>
@@ -13,7 +13,9 @@
     <div class="updates">
       <div class="container">
         <h2>never miss a post. Register for your free account today!</h2>
-        <router-link class="router-button" to="#"> Register for FireBlogs <Arrow class="arrow arrow-light" /> </router-link>
+        <router-link class="router-button" to="#">
+          Register for FireBlogs <Arrow class="arrow arrow-light" />
+        </router-link>
       </div>
     </div>
   </div>
@@ -27,7 +29,9 @@ export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Home",
   components: {
-    BlogPost,BlogCard,Arrow
+    BlogPost,
+    BlogCard,
+    Arrow,
   },
   data() {
     return {
@@ -54,14 +58,14 @@ export default {
           blogCoverPhoto: "designed-for-everyone",
         },
       ],
-
     };
   },
   computed: {
-    sampleBlogCard(){
+    sampleBlogCard() {
       return this.$store.state.sampleBlogCard;
-    }
-  }
+    },
+  },
+  
 };
 </script>
 <style lang="scss" scoped>
