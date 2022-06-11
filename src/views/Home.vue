@@ -38,24 +38,24 @@ export default {
       welcomeScreen: {
         title: "Welcome!",
         blogPost:
-          "Weekly blog articles with all things programming including HTML, CSS, JavaScript and more. Register today to never miss a post!",
+          "Perhaps each of us will have a different dream. Me too, although this is not the career that I want to become in the future, but that is what impressed me the most. That is a programmer job. Programmers are the people who write computer programs...",
         welcomeScreen: true,
         photo: "coding",
       },
       sampleBlog: [
         {
-          title: "Welcome 1!",
+          title: "Daily Life!",
           blogHTML:
             "Weekly blog articles with all things programming including HTML, CSS, JavaScript and more. Register today to never miss a post!",
           welcomeScreen: false,
-          blogCoverPhoto: "beautiful-stories",
+          blogCoverPhoto: "/src/assets/blogPhotos/me.jpeg",
         },
         {
-          title: "Welcome 2!",
+          title: "Passion!",
           blogHTML:
             "Weekly blog articles with all things programming including HTML, CSS, JavaScript and more. Register today to never miss a post!",
           welcomeScreen: false,
-          blogCoverPhoto: "designed-for-everyone",
+          blogCoverPhoto: "/src/assets/blogPhotos/designed-for-everyone.jpg",
         },
       ],
     };

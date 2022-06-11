@@ -23,10 +23,8 @@
       </div>
     </div>
     <div class="blog-photo">
-      <img v-if="post.welcomeScreen" src="../assets/blogPhotos/coding.jpg" />
-
-       <img v-else :src="post.blogCoverPhoto" alt="" /> 
-
+      <img v-if="post.welcomeScreen" src="../assets/blogPhotos/passion1.jpg" />
+      <img v-else :src="post.blogCoverPhoto" alt="" /> 
       <!-- <img v-if="post.welcomeScreen" :src="require(`../assets/blogPhotos/${post.photo}.jpg`)" alt="" /> -->
       <!-- <video
         controls

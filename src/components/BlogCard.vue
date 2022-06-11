@@ -8,7 +8,7 @@
         <Delete class="delete" />
       </div>
     </div>
-    <img src="../assets/blogCards/stock-3.jpg" />
+    <img :src="post.blogCoverPhoto" alt="" />
     <div class="info">
       <h4>{{ post.blogTitle }}</h4>
       <h6>
