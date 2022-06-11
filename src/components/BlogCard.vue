@@ -1,6 +1,6 @@
 <template>
   <div class="blog-card">
-    <div  class="icons">
+    <div v-show="editPost" class="icons">
       <div @click="editBlog" class="icon">
         <Edit class="edit" />
       </div>
@@ -11,7 +11,12 @@
     <img src="../assets/blogCards/stock-3.jpg" />
     <div class="info">
       <h4>{{ post.blogTitle }}</h4>
-      <h6>Posted on: {{ new Date(post.blogDate).toLocaleString("en-us", { dateStyle: "long" }) }}</h6>
+      <h6>
+        Posted on:
+        {{
+          new Date(post.blogDate).toLocaleString("en-us", { dateStyle: "long" })
+        }}
+      </h6>
       <router-link class="link" to="#">
         View The Post <Arrow class="arrow" />
       </router-link>
@@ -29,8 +34,15 @@ export default {
     Arrow,
     Edit,
     Delete,
-  }
-}
+  },
+  computed: {
+    editPost() {
+      if (this.$route.name === "blogs") {
+        return this.$store.state.editPost;
+      }
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -46,7 +58,8 @@ export default {
 
   &:hover {
     transform: rotateZ(-1deg) scale(1.01);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   .icons {
