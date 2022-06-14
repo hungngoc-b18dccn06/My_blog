@@ -1,26 +1,44 @@
 <template>
   <div class="app-wrapper">
     <div class="app">
-    <Navigation />
+      <Navigation v-if="!navigation" />
       <router-view />
-    <Footer />
+      <Footer v-if="!navigation" />
     </div>
   </div>
 </template>
 
 <script>
-import Navigation from './components/Navigation.vue';
-import Footer from './components/Footer.vue';
+import Navigation from "./components/Navigation.vue";
+import Footer from "./components/Footer.vue";
 export default {
   name: "app",
-  components: {Navigation , Footer},
+  components: { Navigation, Footer },
   data() {
-    return {};
+    return {
+      navigation: null,
+    };
   },
   created() {},
   mounted() {},
-  methods: {},
-  watch: {},
+  methods: {
+    checkRoute() {
+      if (
+        this.$route.name === "login" ||
+        this.$route.name === "register" ||
+        this.$route.name === "forgotpassword"
+      ) {
+        this.navigation = true;
+        return;
+      }
+      this.navigation = false;
+    },
+  },
+  watch: {
+    $route(){
+      this.checkRoute();
+    }
+  },
 };
 </script>
 

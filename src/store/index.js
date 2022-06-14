@@ -5,22 +5,22 @@ export default createStore({
     sampleBlogCard: [
       {
         blogTitle: "mot",
-        blogCoverPhoto: "stock-1",
+        blogCoverPhoto: "/src/assets/blogCards/stock-1.jpg",
         blogDate: "May 10, 1:46p",
       },
       {
         blogTitle: "hai",
-        blogCoverPhoto: "stock-2",
+        blogCoverPhoto: "/src/assets/blogCards/stock-2.jpg",
         blogDate: "May 11, 2022",
       },
       {
         blogTitle: "ba",
-        blogCoverPhoto: "stock-3",
+        blogCoverPhoto: "/src/assets/blogCards/stock-3.jpg",
         blogDate: "May 12, 2022",
       },
       {
         blogTitle: "bon",
-        blogCoverPhoto: "stock-4",
+        blogCoverPhoto: "/src/assets/blogCards/stock-4.jpg",
         blogDate: "May 13, 2022",
       },
     ],

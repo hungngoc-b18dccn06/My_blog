@@ -4,7 +4,7 @@
       <div class="left">
         <div class="col-1">
           <router-link class="header" :to="{ name: 'home' }"
-            >FireBlogs</router-link
+            >Blogs-Dev </router-link
           >
           <ul>
             <li>
@@ -31,7 +31,7 @@
         </div>
       </div>
       <div class="right">
-        <p>Copyright 2021 All Rights Reserved</p>
+        <p>Copyright 202 All Rights Reserved</p>
       </div>
     </div>
   </footer>

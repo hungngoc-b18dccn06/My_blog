@@ -3,25 +3,25 @@
     <nav class="container">
       <div class="branding">
         <router-link class="header" :to="{ name: 'home' }"
-          >FireBlogs</router-link
+          ><img src="../assets/logo1.png" /></router-link
         >
       </div>
       <div class="nav-links">
         <ul v-show="!mobile">
           <router-link class="link" :to="{ name: 'home' }">Home</router-link>
-          <router-link class="link" :to="{name : 'blogs'}">Blogs</router-link>
+          <router-link class="link" :to="{ name: 'blogs' }">Blogs</router-link>
           <router-link class="link" to="#">Create Post</router-link>
-          <router-link class="link" to="#">Login/Register</router-link>
+          <router-link class="link" :to="{ name: 'login' }">Login/Register</router-link>
         </ul>
       </div>
     </nav>
     <menuIcon @click="toggleMobileNav" class="menu-icon" v-show="mobile" />
     <transition name="mobile-nav">
       <ul class="mobile-nav" v-show="mobileNav">
-        <router-link class="link" to="#">Home</router-link>
-        <router-link class="link" to="#">Blogs</router-link>
+        <router-link class="link" :to="{ name: 'home' }">Home</router-link>
+        <router-link class="link" :to="{ name: 'blogs' }">Blogs</router-link>
         <router-link class="link" to="#">Create Post</router-link>
-        <router-link class="link" to="#">Login/Register</router-link>
+        <router-link class="link" :to="{ name: 'login' }">Login/Register</router-link>
       </ul>
     </transition>
   </header>
@@ -89,7 +89,7 @@ export default {
 <style lang="scss" scoped>
 header {
   background-color: #fff;
-  padding: 0 25px;
+  padding: 0 15px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   z-index: 99;
@@ -106,7 +106,7 @@ header {
 
   nav {
     display: flex;
-    padding: 25px 0;
+    padding: 10px 0;
 
     .branding {
       display: flex;
@@ -256,8 +256,8 @@ header {
     }
   }
 
-  .mobile-nav-enter-active{
-      transition: all 1s ease;
+  .mobile-nav-enter-active {
+    transition: all 1s ease;
   }
   .mobile-nav-leave-active {
     transition: all 1s ease;
