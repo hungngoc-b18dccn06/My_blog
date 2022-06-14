@@ -1,13 +1,18 @@
 <template>
   <div class="form-wrap">
     <form class="login">
+      <div class="branding">
+        <router-link class="header" :to="{ name: 'home' }"
+          ><img src="../assets/logo2.png"
+        /></router-link>
+      </div>
       <p class="login-register">
         Don't have an account?
         <router-link class="router-link" :to="{ name: 'register' }"
           >Register</router-link
         >
       </p>
-      <h2>Login to Daily-Blogs</h2>
+      <h2>Login to Blogs-Dev</h2>
       <div class="inputs">
         <div class="input">
           <input type="text" placeholder="Email" v-model="email" />
@@ -157,7 +162,7 @@ export default {
     display: none;
     flex: 2;
     background-size: cover;
-    background-image: url("../assets/background.png");
+    background-image: url("../assets/background2.jpg");
     width: 100%;
     height: 100%;
     @media (min-width: 900px) {

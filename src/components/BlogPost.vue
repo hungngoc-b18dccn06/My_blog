@@ -14,7 +14,7 @@
         <p class="content-preview" v-else>
           {{ post.blogHTML }}
         </p>
-        <router-link class="link link-light" v-if="post.welcomeScreen" to="#">
+        <router-link class="link link-light" v-if="post.welcomeScreen" :to="{name :'login'}">
           Login/Register <Arrow class="arrow arrow-light" />
         </router-link>
         <router-link class="link" v-else to="#">
@@ -23,9 +23,7 @@
       </div>
     </div>
     <div class="blog-photo">
-      <img v-if="post.welcomeScreen" src="../assets/blogPhotos/passion1.jpg" />
-      <img v-else :src="post.blogCoverPhoto" alt="" /> 
-      <!-- <img v-if="post.welcomeScreen" :src="require(`../assets/blogPhotos/${post.photo}.jpg`)" alt="" /> -->
+      <img v-if="post.welcomeScreen" src="../assets/blogPhotos/coding.jpg" />
       <!-- <video
         controls
         autoplay
@@ -33,10 +31,12 @@
         v-if="post.welcomeScreen"
       >
         <source
-          src="../assets/blogCards/mixkit-curvy-road-on-a-tree-covered-hill-41537.mp4"
+          src="../assets/video/passion.mp4"
           type="video/mp4"
         />
       </video> -->
+      <img v-else :src="post.blogCoverPhoto" alt="" /> 
+      <!-- <img v-if="post.welcomeScreen" :src="require(`../assets/blogPhotos/${post.photo}.jpg`)" alt="" /> -->
     </div>
   </div>
 </template>
