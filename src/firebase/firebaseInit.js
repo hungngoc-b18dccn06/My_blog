@@ -1,5 +1,7 @@
-import firebase from "firebase";
-import "firebase/firestore";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth"
+import "firebase/compat/firestore"
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDzL3n8MXtuHsUVwsAhuzO4n_W31UAyC0E",
@@ -8,7 +10,7 @@ const firebaseConfig = {
   storageBucket: "myblog-a2be1.appspot.com",
   messagingSenderId: "340380184938",
   appId: "1:340380184938:web:ba62c8cddfafd094327513",
-  measurementId: "G-PJRMYW544C",
+  measurementId: "G-PJRMYW544C"
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
