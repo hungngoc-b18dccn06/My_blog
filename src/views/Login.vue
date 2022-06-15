@@ -37,6 +37,8 @@
 <script>
 import email from "../assets/Icons/envelope-regular.svg";
 import password from "../assets/Icons/lock-alt-solid.svg";
+import firebase from "firebase/compat/app";
+import "firebase/auth";
 export default {
   name: "login",
   components: {
@@ -52,8 +54,18 @@ export default {
     };
   },
   methods: {
-    signIn() {},
-  },
+     signIn() {
+        firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(() => {
+          this.$router.push({ name: "home" });
+          this.error = false;
+          this.errorMsg = "";
+          console.log(firebase.auth().currentUser);
+        }).catch((err) =>{
+          this.error = true;
+          this.errorMsg = err.message;
+        });
+    },
+  }
 };
 </script>
 

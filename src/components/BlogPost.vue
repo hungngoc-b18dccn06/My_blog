@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-wrapper no-user">
+  <div class="blog-wrapper" :class="{'no-user' : !user}">
     <div class="blog-content">
       <div>
         <h2 v-if="post.welcomeScreen">
@@ -14,7 +14,11 @@
         <p class="content-preview" v-else>
           {{ post.blogHTML }}
         </p>
-        <router-link class="link link-light" v-if="post.welcomeScreen" :to="{name :'login'}">
+        <router-link
+          class="link link-light"
+          v-if="post.welcomeScreen"
+          :to="{ name: 'login' }"
+        >
           Login/Register <Arrow class="arrow arrow-light" />
         </router-link>
         <router-link class="link" v-else to="#">
@@ -35,7 +39,7 @@
           type="video/mp4"
         />
       </video> -->
-      <img v-else :src="post.blogCoverPhoto" alt="" /> 
+      <img v-else :src="post.blogCoverPhoto" alt="" />
       <!-- <img v-if="post.welcomeScreen" :src="require(`../assets/blogPhotos/${post.photo}.jpg`)" alt="" /> -->
     </div>
   </div>
@@ -49,6 +53,14 @@ export default {
   props: ["post"],
   components: {
     Arrow,
+  },
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+    admin() {
+      return this.$store.state.profileAdmin;
+    },
   },
 };
 </script>
