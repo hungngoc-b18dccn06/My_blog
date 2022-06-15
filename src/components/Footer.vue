@@ -23,9 +23,11 @@
         </div>
         <div class="col-2">
           <ul>
-            <router-link class="link" to="#">Home</router-link>
-            <router-link class="link" to="#">Blogs</router-link>
-            <router-link class="link" to="#">Create Post</router-link>
+            <router-link class="link" :to="{ name: 'home' }">Home</router-link>
+            <router-link class="link" :to="{ name: 'blogs' }">Blogs</router-link>
+            <router-link v-if="admin" class="link" to="#"
+              >Create Post</router-link
+            >
             <router-link v-if="!user" class="link" :to="{ name: 'login' }"
               >Login/Register</router-link
             >
@@ -56,8 +58,13 @@ export default {
     user() {
       return this.$store.state.user;
     },
+    // eslint-disable-next-line vue/return-in-computed-property
     admin() {
-      return this.$store.state.profileAdmin;
+      const adminToken = this.$store.state.uidAdmin;
+      const userToken = this.$store.state.profileId;
+      if (adminToken === userToken) {
+        return true;
+      }
     },
   },
 };

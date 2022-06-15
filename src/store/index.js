@@ -36,6 +36,7 @@ export default createStore({
     profileUsername: null,
     profileId: null,
     profileInitials: null,
+    uidAdmin : "UWAADJepLKZUVMj46RXMxIByp0t1",
   },
   mutations: {
     toggleEditPost(state,payload){
@@ -44,13 +45,17 @@ export default createStore({
     updateUser(state, payload) {
       state.user = payload;
     },
+    setProfileAdmin(state, payload) {
+      state.uidAdmin = payload;
+    
+    },
     setProfileInfo(state,doc){
       state.profileId = doc.id;
       state.profileEmail = doc.data().email;
       state.profileFirstName = doc.data().firstName;
       state.profileLastName = doc.data().lastName;
       state.profileUsername = doc.data().username;
-      console.log(state.user);
+    
     },
     setProfileInitials(state) {
       state.profileInitials =
