@@ -4,8 +4,8 @@
       <div class="left">
         <div class="col-1">
           <router-link class="header" :to="{ name: 'home' }"
-            >Blogs-Dev </router-link
-          >
+            >Blogs-Dev
+          </router-link>
           <ul>
             <li>
               <a href="#"><youTube class="svg-icon" /></a>
@@ -26,7 +26,9 @@
             <router-link class="link" to="#">Home</router-link>
             <router-link class="link" to="#">Blogs</router-link>
             <router-link class="link" to="#">Create Post</router-link>
-            <router-link class="link" to="#">Login/Register</router-link>
+            <router-link v-if="!user" class="link" :to="{ name: 'login' }"
+              >Login/Register</router-link
+            >
           </ul>
         </div>
       </div>
@@ -51,12 +53,12 @@ export default {
     linkedin,
   },
   computed: {
-    // user() {
-    //   return this.$store.state.user;
-    // },
-    // admin() {
-    //   return this.$store.state.profileAdmin;
-    // },
+    user() {
+      return this.$store.state.user;
+    },
+    admin() {
+      return this.$store.state.profileAdmin;
+    },
   },
 };
 </script>

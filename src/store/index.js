@@ -1,5 +1,7 @@
 import { createStore } from 'vuex'
-
+import firebase from "firebase/compat/app";
+import db from "../firebase/firebaseInit"
+import "firebase/auth";
 export default createStore({
   state: {
     sampleBlogCard: [
@@ -26,13 +28,43 @@ export default createStore({
     ],
     editPost: null,
     blogTitle: '',
+    user: null,
+    profileAdmin: null,
+    profileEmail: null,
+    profileFirstName: null,
+    profileLastName: null,
+    profileUsername: null,
+    profileId: null,
+    profileInitials: null,
   },
   mutations: {
     toggleEditPost(state,payload){
         state.editPost = payload;
     },
+    updateUser(state, payload) {
+      state.user = payload;
+    },
+    setProfileInfo(state,doc){
+      state.profileId = doc.id;
+      state.profileEmail = doc.data().email;
+      state.profileFirstName = doc.data().firstName;
+      state.profileLastName = doc.data().lastName;
+      state.profileUsername = doc.data().username;
+      console.log(state.user);
+    },
+    setProfileInitials(state) {
+      state.profileInitials =
+        state.profileFirstName.match(/(\b\S)?/g).join("") + state.profileLastName.match(/(\b\S)?/g).join("");
+    },
   },
   actions: {
+    async getCurrentUser({commit}){
+      const dataBase = await db.collection("users").doc(firebase.auth().currentUser.uid);
+      const dbResults = await dataBase.get();
+      commit("setProfileInfo",dbResults);
+      commit("setProfileInitials");
+      
+    }
 
   },
   getters: {

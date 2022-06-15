@@ -51,7 +51,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = `${to.meta.title} | Daily-Blogs`;
+  document.title = `${to.meta.title} | Blogs-Dev`;
   next();
 });
 
