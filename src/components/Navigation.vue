@@ -3,23 +3,33 @@
     <nav class="container">
       <div class="branding">
         <router-link class="header" :to="{ name: 'home' }"
-          ><img src="../assets/logo1.png" /></router-link
-        >
+          ><img src="../assets/logo1.png"
+        /></router-link>
       </div>
       <div class="nav-links">
         <ul v-show="!mobile">
           <router-link class="link" :to="{ name: 'home' }">Home</router-link>
           <router-link class="link" :to="{ name: 'blogs' }">Blogs</router-link>
-          <router-link class="link" to="#">Create Post</router-link>
-          <router-link v-if="!user" class="link" :to="{ name: 'login' }">Login/Register</router-link>
+          <router-link v-if="admin" :to="{ name: 'CreatePost' }" class="link">Create Post</router-link>
+          <router-link v-if="!user" class="link" :to="{ name: 'login' }"
+            >Login/Register</router-link
+          >
         </ul>
-        <div v-if="user" @click="toggleProfileMenu" class="profile" ref="profile">
+        <div
+          v-if="user"
+          @click="toggleProfileMenu"
+          class="profile"
+          ref="profile"
+        >
           <span>{{ this.$store.state.profileInitials }}</span>
           <div v-show="profileMenu" class="profile-menu">
             <div class="info">
               <p class="initials">{{ this.$store.state.profileInitials }}</p>
               <div class="right">
-                <p>{{ this.$store.state.profileFirstName }} {{ this.$store.state.profileLastName }}</p>
+                <p>
+                  {{ this.$store.state.profileFirstName }}
+                  {{ this.$store.state.profileLastName }}
+                </p>
                 <p>{{ this.$store.state.profileUsername }}</p>
                 <p>{{ this.$store.state.profileEmail }}</p>
               </div>
@@ -31,7 +41,7 @@
                   <p>Profile</p>
                 </router-link>
               </div>
-              <div class="option">
+              <div v-if="admin" class="option">
                 <router-link class="option" :to="{ name: 'Admin' }">
                   <adminIcon class="icon" />
                   <p>Admin</p>
@@ -51,8 +61,10 @@
       <ul class="mobile-nav" v-show="mobileNav">
         <router-link class="link" :to="{ name: 'home' }">Home</router-link>
         <router-link class="link" :to="{ name: 'blogs' }">Blogs</router-link>
-        <router-link class="link" to="#">Create Post</router-link>
-        <router-link v-if="!user" class="link" :to="{ name: 'login' }">Login/Register</router-link>
+        <router-link v-if="admin" class="link" to="#">Create Post</router-link>
+        <router-link v-if="!user" class="link" :to="{ name: 'login' }"
+          >Login/Register</router-link
+        >
       </ul>
     </transition>
   </header>
@@ -116,10 +128,16 @@ export default {
   },
   computed: {
     user() {
+      console.log(this.$store.state.profileId);
       return this.$store.state.user;
     },
+    // eslint-disable-next-line vue/return-in-computed-property
     admin() {
-      return this.$store.state.profileAdmin;
+      const adminToken = this.$store.state.uidAdmin;
+      const userToken = this.$store.state.profileId;
+      if (adminToken === userToken) {
+        return true;
+      }
     },
   },
 };
@@ -205,7 +223,7 @@ header {
           .info {
             display: flex;
             align-items: center;
-            padding: 15px;
+            padding: 10px;
             border-bottom: 1px solid #fff;
 
             .initials {

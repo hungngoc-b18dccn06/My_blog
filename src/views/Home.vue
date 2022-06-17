@@ -55,7 +55,7 @@ export default {
           blogHTML:
             "Weekly blog articles with all things programming including HTML, CSS, JavaScript and more. Register today to never miss a post!",
           welcomeScreen: false,
-          blogCoverPhoto: "/src/assets/blogPhotos/coding2.jpg",
+          blogCoverPhoto: "/src/assets/blogPhotos/passion.jpg",
         },
       ],
     };

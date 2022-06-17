@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="blog-photo">
-      <img v-if="post.welcomeScreen" src="../assets/blogPhotos/coding.jpg" />
+      <img v-if="post.welcomeScreen" src="../assets/blogPhotos/ai.png" />
       <!-- <video
         controls
         autoplay
@@ -72,8 +72,8 @@ export default {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   @media (min-width: 700px) {
-    min-height: 650px;
-    max-height: 650px;
+    min-height: 600px;
+    max-height: 600px;
     flex-direction: row;
   }
 
