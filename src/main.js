@@ -7,7 +7,8 @@ import firebase from "firebase/compat/app";
 import "firebase/auth";
 
 const app = createApp(App);
-
+app.use(Vue2Editor);
+app.config.productionTip = false
 firebase.auth().onAuthStateChanged(() => {
   if (app) {
     app.use(router);

@@ -6,7 +6,11 @@
       <div class="container">
         <h3>View More Recent Blogs</h3>
         <div class="blog-cards">
-          <BlogCard :post="post" v-for="(post, index) in sampleBlogCard" :key="index" />
+          <BlogCard
+            :post="post"
+            v-for="(post, index) in sampleBlogCard"
+            :key="index"
+          />
         </div>
       </div>
     </div>
@@ -64,14 +68,10 @@ export default {
     sampleBlogCard() {
       return this.$store.state.sampleBlogCard;
     },
-     user() {
+    user() {
       return this.$store.state.user;
     },
-    admin() {
-      return this.$store.state.profileAdmin;
-    },
   },
-  
 };
 </script>
 <style lang="scss" scoped>
