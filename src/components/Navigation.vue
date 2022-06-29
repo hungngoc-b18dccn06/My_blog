@@ -128,7 +128,6 @@ export default {
   },
   computed: {
     user() {
-      console.log(this.$store.state.profileId);
       return this.$store.state.user;
     },
     // eslint-disable-next-line vue/return-in-computed-property

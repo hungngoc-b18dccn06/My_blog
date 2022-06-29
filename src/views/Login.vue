@@ -59,7 +59,6 @@ export default {
           this.$router.push({ name: "home" });
           this.error = false;
           this.errorMsg = "";
-          console.log(firebase.auth().currentUser);
         }).catch((err) =>{
           this.error = true;
           this.errorMsg = err.message;

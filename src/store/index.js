@@ -26,8 +26,12 @@ export default createStore({
         blogDate: "May 13, 2022",
       },
     ],
+    blogHTML: "Write your blog title here...",
+    blogTitle: "",
+    blogPhotoName: "",
+    blogPhotoFileURL: null,
+    blogPhotoPreview: null,
     editPost: null,
-    blogTitle: '',
     user: null,
     profileAdmin: null,
     profileEmail: null,
@@ -39,6 +43,21 @@ export default createStore({
     uidAdmin : "UWAADJepLKZUVMj46RXMxIByp0t1",
   },
   mutations: {
+    newBlogPost(state, payload) {
+      state.blogHTML = payload;
+    },
+    updateBlogTitle(state, payload) {
+      state.blogTitle = payload;
+    },
+    fileNameChange(state, payload) {
+      state.blogPhotoName = payload;
+    },
+    createFileURL(state, payload) {
+      state.blogPhotoFileURL = payload;
+    },
+    openPhotoPreview(state) {
+      state.blogPhotoPreview = !state.blogPhotoPreview;
+    },
     toggleEditPost(state,payload){
         state.editPost = payload;
     },
