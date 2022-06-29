@@ -35,6 +35,7 @@
 import Modal from "../components/Modal.vue";
 import adminIcon from "../assets/Icons/user-crown-light.svg";
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: "Profile",
   components: {
     Modal,
@@ -50,6 +51,7 @@ export default {
     updateProfile() {
       this.$store.dispatch("updateUserSettings");
       this.modalActive = !this.modalActive;
+      console.log(this.$store.dispatch("updateUserSettings"))
     },
     closeModal() {
       this.modalActive = !this.modalActive;
