@@ -36,6 +36,7 @@ export default {
     Delete,
   },
   computed: {
+    // eslint-disable-next-line vue/return-in-computed-property
     editPost() {
       if (this.$route.name === "blogs") {
         return this.$store.state.editPost;

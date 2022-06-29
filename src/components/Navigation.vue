@@ -1,7 +1,12 @@
 <template>
   <header>
     <nav class="container">
-      <div class="branding">
+      <div v-if="user" class="branding" style="display:none">
+        <router-link class="header" :to="{ name: 'home' }"
+          ><img src="../assets/logo1.png"
+        /></router-link>
+      </div>
+      <div v-else class="branding" style="padding-left: 280px;" >
         <router-link class="header" :to="{ name: 'home' }"
           ><img src="../assets/logo1.png"
         /></router-link>
@@ -10,7 +15,9 @@
         <ul v-show="!mobile">
           <router-link class="link" :to="{ name: 'home' }">Home</router-link>
           <router-link class="link" :to="{ name: 'blogs' }">Blogs</router-link>
-          <router-link v-if="admin" :to="{ name: 'CreatePost' }" class="link">Create Post</router-link>
+          <router-link v-if="admin" :to="{ name: 'CreatePost' }" class="link"
+            >Create Post</router-link
+          >
           <router-link v-if="!user" class="link" :to="{ name: 'login' }"
             >Login/Register</router-link
           >
@@ -65,11 +72,13 @@
         <router-link v-if="!user" class="link" :to="{ name: 'login' }"
           >Login/Register</router-link
         >
+        <closeIcon class="close-icon" @click="close" />
       </ul>
     </transition>
   </header>
 </template>
 <script>
+import closeIcon from "../assets/Icons/icons8-close.svg";
 import menuIcon from "../assets/Icons/bars-regular.svg";
 import userIcon from "../assets/Icons/user-alt-light.svg";
 import adminIcon from "../assets/Icons/user-crown-light.svg";
@@ -85,6 +94,7 @@ export default {
     userIcon,
     adminIcon,
     signOutIcon,
+    closeIcon,
   },
   data() {
     return {
@@ -113,7 +123,9 @@ export default {
     toggleMobileNav() {
       this.mobileNav = !this.mobileNav;
     },
-
+    close() {
+      this.mobileNav = !this.mobileNav;
+    },
     toggleProfileMenu(e) {
       if (e.target === this.$refs.profile) {
         this.profileMenu = !this.profileMenu;
@@ -328,6 +340,19 @@ header {
 
   .mobile-nav-leave-to {
     transform: translateX(-250px);
+  }
+  @media (max-width: 800px) {
+
+    svg.svg-inline--fa.fa-bars.fa-w-14.menu-icon {
+      left: 15px;
+      top: 19px;
+    }
+
+    svg.close-icon {
+      background: #fff;
+      position: fixed;
+      left: 200px;
+    }
   }
 }
 </style>
